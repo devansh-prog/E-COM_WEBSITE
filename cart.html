@@ -91,6 +91,7 @@
         const cartItems = document.getElementById('cart-items');
         const cartSubtotal = document.getElementById('cart-subtotal');
         const cartTotal = document.getElementById('cart-total');
+        const checkoutButton = document.querySelector('#subtotal button.normal');
 
         // Load cart from localStorage
         const loadCart = () => {
@@ -112,6 +113,10 @@
             });
             localStorage.setItem('cart', JSON.stringify(items));
         };
+        checkoutButton.addEventListener('click', () => {
+        const totalAmount = cartTotal.textContent;
+        alert(`Proceeding to checkout. Your total amount is ${totalAmount}`);
+    });
 
         // Add item to the DOM
         const addItemToDOM = (item) => {
@@ -182,7 +187,14 @@
         });
 
         // Initial load
-        document.addEventListener('DOMContentLoaded', loadCart);
+        document.addEventListener('DOMContentLoaded', loadCart());
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', () => {
+                const totalAmount = cartTotal.textContent;
+                alert(`Proceeding to checkout. Your total amount is ${totalAmount}`);
+            });
+        }
+    
     </script>
 </body>
 
