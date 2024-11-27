@@ -113,10 +113,7 @@
             });
             localStorage.setItem('cart', JSON.stringify(items));
         };
-        checkoutButton.addEventListener('click', () => {
-        const totalAmount = cartTotal.textContent;
-        alert(`Proceeding to checkout. Your total amount is ${totalAmount}`);
-    });
+    
 
         // Add item to the DOM
         const addItemToDOM = (item) => {
